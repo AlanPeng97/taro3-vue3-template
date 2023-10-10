@@ -1,0 +1,13 @@
+// .eslintignore
+node_modules
+dist
+*.sh
+*.md
+.vscode
+/public
+.history
+__tests__
+.history
+config
+node_modules
+types

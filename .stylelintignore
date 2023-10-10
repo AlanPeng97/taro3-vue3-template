@@ -1,0 +1,10 @@
+/dist/*
+/html/*
+/public/*
+public/*
+__tests__
+.history
+.vscode
+config
+node_modules
+types
