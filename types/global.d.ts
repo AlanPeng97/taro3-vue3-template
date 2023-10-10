@@ -1,3 +1,5 @@
+/// <reference types="@tarojs/taro" />
+
 declare module "*.png";
 declare module "*.gif";
 declare module "*.jpg";
@@ -9,14 +11,14 @@ declare module "*.scss";
 declare module "*.sass";
 declare module "*.styl";
 
-// @ts-ignore
-declare const process: {
-  env: {
-    TARO_ENV: "weapp" | "swan" | "alipay" | "h5" | "rn" | "tt" | "quickapp" | "qq";
-    [key: string]: any;
-  };
-};
+declare namespace NodeJS {
+  interface ProcessEnv {
+    TARO_ENV: "weapp" | "swan" | "alipay" | "h5" | "rn" | "tt" | "quickapp" | "qq" | "jd";
+  }
+}
 
 declare module "@tarojs/components" {
   export * from "@tarojs/components/types/index.vue3";
 }
+
+// declare const API_URL: string;

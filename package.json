@@ -40,9 +40,11 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@nutui/nutui-taro": "^4.1.6",
     "@tarojs/components": "3.6.17",
     "@tarojs/helper": "3.6.17",
     "@tarojs/plugin-framework-vue3": "3.6.17",
+    "@tarojs/plugin-html": "^3.6.17",
     "@tarojs/plugin-platform-alipay": "3.6.17",
     "@tarojs/plugin-platform-h5": "3.6.17",
     "@tarojs/plugin-platform-jd": "3.6.17",
@@ -53,6 +55,7 @@
     "@tarojs/runtime": "3.6.17",
     "@tarojs/shared": "3.6.17",
     "@tarojs/taro": "3.6.17",
+    "@types/sass": "1.43.1",
     "pinia": "^2.0.10",
     "vue": "^3.2.24"
   },
@@ -94,6 +97,8 @@
     "stylelint-order": "^6.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^4.1.0",
+    "unplugin-vue-components": "^0.25.2",
+    "vue-iconfonts-cli": "^1.0.6",
     "vue-loader": "^17.0.0",
     "webpack": "^5.78.0"
   },

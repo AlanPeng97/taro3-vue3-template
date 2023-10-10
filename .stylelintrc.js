@@ -45,7 +45,7 @@ module.exports = {
     "function-no-unknown": [
       true,
       {
-        ignoreFunctions: ["v-bind"],
+        ignoreFunctions: ["v-bind", "constant"],
       },
     ],
     "value-keyword-case": null,
@@ -56,6 +56,8 @@ module.exports = {
         ignoreMediaFeatureNames: ["/^max--moz-/"],
       },
     ],
+    "selector-type-no-unknown": null,
+    "property-no-vendor-prefix": null,
     "order/properties-order": [
       // 布局属性
       "display",

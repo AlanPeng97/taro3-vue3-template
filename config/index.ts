@@ -1,15 +1,28 @@
+import Components from "unplugin-vue-components/webpack";
+import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
+
+const path = require("path");
 const config = {
   projectName: "taro3-vue3-template",
   date: "2023-10-10",
-  designWidth: 750,
+  designWidth(input) {
+    if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
+      return 375;
+    }
+    return 750;
+  },
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2,
+    375: 2 / 1,
+  },
+  alias: {
+    "@": path.resolve(__dirname, "..", "src"),
   },
   sourceRoot: "src",
   outputRoot: "dist",
-  plugins: [],
+  plugins: ["@tarojs/plugin-html"],
   defineConstants: {},
   copy: {
     patterns: [],
@@ -20,8 +33,20 @@ const config = {
   cache: {
     enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
+  sass: {
+    // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
+    // data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+    resource: [path.resolve(__dirname, "..", "src/assets/styles/custom_theme.scss")],
+    data: `@import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";`,
+  },
   mini: {
     webpackChain(chain) {
+      chain.plugin("unplugin-vue-components").use(
+        Components({
+          resolvers: [NutUIResolver({ taro: true })],
+        })
+      );
+
       chain.merge({
         module: {
           rule: {
@@ -59,6 +84,13 @@ const config = {
     },
   },
   h5: {
+    webpackChain(chain) {
+      chain.plugin("unplugin-vue-components").use(
+        Components({
+          resolvers: [NutUIResolver({ taro: true })],
+        })
+      );
+    },
     publicPath: "/",
     staticDirectory: "static",
     postcss: {

@@ -33,6 +33,7 @@ module.exports = {
     "prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
     "no-irregular-whitespace": "off", // 禁止不规则的空白
     "no-undef": "off", // 默认值 error 与 vue3中的setup 冲突，改为 off
+    "no-useless-escape": 0,
 
     // typeScript (https://typescript-eslint.io/rules)
     "@typescript-eslint/no-unused-vars": "warn", // 禁止定义未使用的变量
@@ -63,5 +64,6 @@ module.exports = {
     "vue/attribute-hyphenation": "off", // 对模板中的自定义组件强制执行属性命名样式
     "vue/require-default-prop": "off", // 此规则要求为每个 prop 为必填时，必须提供默认值
     "vue/multi-word-component-names": "off", // 要求组件名称始终为 “-” 链接的单词
+    "require-valid-default-prop": "off",
   },
 };

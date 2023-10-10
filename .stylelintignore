@@ -8,3 +8,4 @@ __tests__
 config
 node_modules
 types
+# common.scss
